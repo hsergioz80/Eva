@@ -11,6 +11,8 @@
 		E099A9F92B214AF7002E294B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099A9F82B214AF7002E294B /* ContentView.swift */; };
 		E099A9FB2B214AF8002E294B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E099A9FA2B214AF8002E294B /* Assets.xcassets */; };
 		E099A9FE2B214AF8002E294B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E099A9FD2B214AF8002E294B /* Preview Assets.xcassets */; };
+		E099AA0E2B214F8F002E294B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099AA0D2B214F8F002E294B /* LoginView.swift */; };
+		E099AA102B215092002E294B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099AA0F2B215092002E294B /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E099A9F82B214AF7002E294B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E099A9FA2B214AF8002E294B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E099A9FD2B214AF8002E294B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E099AA0D2B214F8F002E294B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E099AA0F2B215092002E294B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 		E099AA062B214C4C002E294B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E099AA0F2B215092002E294B /* InputView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 		E099AA0A2B214CE6002E294B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				E099AA0D2B214F8F002E294B /* LoginView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E099AA0E2B214F8F002E294B /* LoginView.swift in Sources */,
+				E099AA102B215092002E294B /* InputView.swift in Sources */,
 				E099A9F92B214AF7002E294B /* ContentView.swift in Sources */,
 				E099A9F72B214AF7002E294B /* EvaApp.swift in Sources */,
 			);
