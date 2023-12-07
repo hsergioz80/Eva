@@ -51,8 +51,10 @@
 		E099A9F52B214AF7002E294B /* Eva */ = {
 			isa = PBXGroup;
 			children = (
-				E099A9F62B214AF7002E294B /* EvaApp.swift */,
-				E099A9F82B214AF7002E294B /* ContentView.swift */,
+				E099AA072B214C50002E294B /* App */,
+				E099AA062B214C4C002E294B /* Components */,
+				E099AA052B214C48002E294B /* Core */,
+				E099AA042B214C45002E294B /* Model */,
 				E099A9FA2B214AF8002E294B /* Assets.xcassets */,
 				E099A9FC2B214AF8002E294B /* Preview Content */,
 			);
@@ -65,6 +67,60 @@
 				E099A9FD2B214AF8002E294B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E099AA042B214C45002E294B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E099AA052B214C48002E294B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E099AA0A2B214CE6002E294B /* Authentication */,
+				E099AA092B214CDA002E294B /* Profile */,
+				E099AA082B214CA6002E294B /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E099AA062B214C4C002E294B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E099AA072B214C50002E294B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E099A9F62B214AF7002E294B /* EvaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E099AA082B214CA6002E294B /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E099A9F82B214AF7002E294B /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E099AA092B214CDA002E294B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E099AA0A2B214CE6002E294B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
