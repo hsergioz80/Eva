@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State private var address = ""
+
     @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         if let user = viewModel.currentUser{
@@ -35,6 +37,36 @@ struct ProfileView: View {
                     }
                 }
                 
+                VStack(spacing: 24){
+                    InputView(text: $address,
+                              title: "Enter Pick Up Address",
+                              placeHolder: "50 Cherry Lane")
+                }
+                .padding(.horizontal)
+                .padding(.top, 12)
+                //sign in
+                
+                Button{
+                    Task{
+//                        try await viewModel.signIn(withEmail: email,
+//                                                   password: password)
+                    }
+                }label: {
+                    HStack{
+                        Text("Continue")
+                            .fontWeight(.semibold)
+                        Image(systemName: "arrow.right")
+                    }
+                    .foregroundColor(.white)
+                    .frame(width: UIScreen.main.bounds.width - 32,
+                           height: 48)
+                }
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
+                .padding(.top, 24)
+                
+                Spacer()
+                    
                 Section("General"){
                     HStack{
                         SettingsRowView(imageName: "gear",
