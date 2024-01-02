@@ -2,7 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift
 
 ## Ignore these hidden files about each directory on macOS
-.DS_Store
+**/.DS_Store
 
 ### Swift ###
 # Xcode
