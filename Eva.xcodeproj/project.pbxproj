@@ -46,6 +46,7 @@
 		E0A48FFD2B21656200C36F75 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A48FFC2B21656200C36F75 /* RegistrationView.swift */; };
 		E0A48FFF2B2176B300C36F75 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A48FFE2B2176B300C36F75 /* ProfileView.swift */; };
 		E0A490012B217B6300C36F75 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A490002B217B6300C36F75 /* SettingsRowView.swift */; };
+		E0A894F12B4B532C005371C0 /* PUInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A894F02B4B532C005371C0 /* PUInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		E0A48FFC2B21656200C36F75 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E0A48FFE2B2176B300C36F75 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E0A490002B217B6300C36F75 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		E0A894F02B4B532C005371C0 /* PUInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				E0A48FFE2B2176B300C36F75 /* ProfileView.swift */,
+				E0A894F02B4B532C005371C0 /* PUInfo.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				E099AA102B215092002E294B /* InputView.swift in Sources */,
 				E099A9F92B214AF7002E294B /* ContentView.swift in Sources */,
 				E099A9F72B214AF7002E294B /* EvaApp.swift in Sources */,
+				E0A894F12B4B532C005371C0 /* PUInfo.swift in Sources */,
 				E0556F4A2B2184C50024DF5A /* User.swift in Sources */,
 				E0A48FFF2B2176B300C36F75 /* ProfileView.swift in Sources */,
 				E0A48FFD2B21656200C36F75 /* RegistrationView.swift in Sources */,

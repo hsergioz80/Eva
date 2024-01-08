@@ -48,8 +48,7 @@ struct ProfileView: View {
                 
                 Button{
                     Task{
-//                        try await viewModel.signIn(withEmail: email,
-//                                                   password: password)
+                        try await viewModel.getAddress(uid: user.id, address: address)
                     }
                 }label: {
                     HStack{

@@ -26,6 +26,21 @@ class AuthViewModel: ObservableObject{
         }
     }
     
+    func getAddress(uid: String, address: String) async throws{
+        do{
+            print("DEBUG: THIS IS THE ADDRESS: \(address)")
+            print("DEBUG: THIS IS THE UID: \(uid)")
+            //How to update variable on firebase
+            let db = Firestore.firestore()
+            let reservation = db.collection("users").document(uid)
+            try await reservation.setData(["address": address], merge: true)
+            
+            
+        }catch{
+            print("DEBUG: Failed to log in with error \(error.localizedDescription)")
+        }
+    }
+    
     func signIn(withEmail email: String, password: String) async throws{
         do{
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
@@ -36,12 +51,12 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func createUser(withEmail email: String, password: String, fullname: String) async throws{
+    func createUser(withEmail email: String, password: String, fullname: String, address:String, PUDate:String, DODate:String) async throws{
         do{//this allows us to write asycrnous code without completion blocks
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
-            let user = User(id: result.user.uid, fullname: fullname, email: email)
-            let encodedUser = try Firestore.Encoder().encode(user) 
+            let user = User(id: result.user.uid, fullname: fullname, email: email, address: address, PUDate:PUDate, DODate: DODate)
+            let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
         } catch{

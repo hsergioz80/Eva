@@ -12,6 +12,12 @@ struct RegistrationView: View {
     @State private var fullName = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    @State private var address = ""
+    @State private var PUDate = ""
+    @State private var DODate = ""
+
+    
+    
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -68,7 +74,10 @@ struct RegistrationView: View {
                 Task{
                     try await viewModel.createUser(withEmail:email,
                                                     password: password,
-                                                    fullname: fullName)
+                                                   fullname: fullName, 
+                                                   address: address,
+                                                   PUDate: PUDate,
+                                                   DODate: DODate)
                 }
             }label: {
                 HStack{
