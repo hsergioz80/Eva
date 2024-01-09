@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E054B7832B4DD9E5008E5193 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054B7822B4DD9E5008E5193 /* Services.swift */; };
 		E0556F4A2B2184C50024DF5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0556F492B2184C50024DF5A /* User.swift */; };
 		E056C94F2B223B1A00A352EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E056C94E2B223B1900A352EC /* GoogleService-Info.plist */; };
 		E056C9522B224B9400A352EC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E056C9512B224B9400A352EC /* FirebaseAnalytics */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E054B7822B4DD9E5008E5193 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		E0556F492B2184C50024DF5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E056C94E2B223B1900A352EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E056C9892B224C2F00A352EC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				E0A48FFE2B2176B300C36F75 /* ProfileView.swift */,
 				E0A894F02B4B532C005371C0 /* PUInfo.swift */,
+				E054B7822B4DD9E5008E5193 /* Services.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				E099AA0E2B214F8F002E294B /* LoginView.swift in Sources */,
 				E099AA102B215092002E294B /* InputView.swift in Sources */,
 				E099A9F92B214AF7002E294B /* ContentView.swift in Sources */,
+				E054B7832B4DD9E5008E5193 /* Services.swift in Sources */,
 				E099A9F72B214AF7002E294B /* EvaApp.swift in Sources */,
 				E0A894F12B4B532C005371C0 /* PUInfo.swift in Sources */,
 				E0556F4A2B2184C50024DF5A /* User.swift in Sources */,

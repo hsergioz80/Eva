@@ -11,7 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         Group{
-            //added this line and preview died :(
+//            added this line and preview died :(
             if viewModel.userSession != nil{
                 ProfileView()
             } else{

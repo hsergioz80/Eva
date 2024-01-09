@@ -9,7 +9,13 @@ import SwiftUI
 
 struct PUInfo: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+                    VStack {
+                        NavigationLink(destination: Services()) {
+                            Text("Show Detail View")
+                        }.navigationBarTitle("PUInfo")
+                    }
+                }
     }
 }
 
