@@ -21,9 +21,10 @@ struct PUInfo: View {
         calendar.date(from:endComponents)!
     }()
     
+    
     var body: some View {
         NavigationView {
-            VStack{
+            VStack(spacing: 24){
                 DatePicker(
                     "Pick Up Date",
                     selection: $date,
@@ -38,15 +39,24 @@ struct PUInfo: View {
                     displayedComponents: [.date, .hourAndMinute]
                 )
                 
-                Section("Pricing"){
+                Section("Choose an Option"){
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            ForEach(0..<3) {
-                                Text("Service \($0)")
-                                    .foregroundStyle(.white)
-                                    .font(.largeTitle)
-                                    .frame(width: 200, height: 200)
-                                    .background(.red)
+                            let items = [0,1,2]
+                            ForEach(0..<items.count, id: \.self) {
+                                if($0 == 0){
+                                    Image("Wash")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 200, height: 200)
+
+                                }
+                                if($0 == 1){
+                                    Image("Dry")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 200, height: 200)
+                                }
                             }
                         }
                     }
@@ -55,9 +65,9 @@ struct PUInfo: View {
                 VStack {
                     
                     NavigationLink(destination: Services()) {
-                        Text("Checkout")
-                    }.navigationBarTitle("PUInfo")
-                }
+                        Text("Confirm")
+                    }
+                }.navigationBarTitle("Enter Pick Up Info")
                 
                 
             }

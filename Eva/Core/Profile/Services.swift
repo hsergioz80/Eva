@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct Services: View {
-    
+    @EnvironmentObject var viewModel: AuthViewModel
+
     var body: some View {
-        Text("Hello, World! This is the services screen")
+        if let user = viewModel.currentUser{
+            Text("Hello, \(user.fullname) \nThis is you confirmation screen")
+        }
         
-        
+        VStack {
+            
+            NavigationLink(destination: Payment()) {
+                Text("Proceed to Payment")
+            }.navigationBarTitle("Confimation Page")
+        }
     }
 }
 

@@ -10,6 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     @State private var address = ""
     
+
+    
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var path = NavigationPath()
     
@@ -44,6 +46,7 @@ struct ProfileView: View {
                         InputView(text: $address,
                                   title: "Enter Pick Up Address",
                                   placeHolder: "50 Cherry Lane")
+                        
                     }
                     .padding(.horizontal)
                     .padding(.top, 12)
@@ -62,7 +65,7 @@ struct ProfileView: View {
                         }
                     }label: {
                         HStack{
-                            Text("Continue")
+                            Text("Request Wash")
                                 .fontWeight(.semibold)
                             Image(systemName: "arrow.right")
                         }
@@ -123,6 +126,8 @@ struct ProfileView: View {
         }
     }
 }
+
+
 
 #Preview {
     ProfileView()
