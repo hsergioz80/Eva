@@ -87,4 +87,6 @@ class AuthViewModel: ObservableObject{
         
         print("DEBUG: Current user is \(self.currentUser)")
     }
+    
+    
 }

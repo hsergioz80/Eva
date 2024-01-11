@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+class HighlightedButton: UIButton {
+
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? .red : .green
+        }
+    }
+}
+
 struct PUInfo: View {
     @State private var date = Date()
     @State private var date1 = Date()
@@ -43,15 +52,43 @@ struct PUInfo: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             let items = [0,1,2]
+                            let selected = 0
+                            
                             ForEach(0..<items.count, id: \.self) {
                                 if($0 == 0){
+                                    Button{
+                                        Task{
+//                                            try await viewModel.signIn(withEmail: email,
+//                                                                       password: password)
+                                        }
+                                    }label: {
+                                        HStack{
+                                            Text("$40")
+                                        }
+                                        .foregroundColor(.white)
+                                        .frame(width: 50,
+                                               height: 50)
+                                    }
+                                    .background(Color(.systemBlue))
+                                    
+//                                    .disabled(!formIsValid)
+//                                    .opacity(formIsValid ? 1.0: 0.5)
+                                    .cornerRadius(10)
+                                    .padding(.top, 24)
+
+                                    
                                     Image("Wash")
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 200, height: 200)
+                                        .onTapGesture {
+                                            print("//// DEBUG:Selected wash")
+                                        }
+                                        
 
                                 }
                                 if($0 == 1){
+                                    Text("$40")
                                     Image("Dry")
                                         .resizable()
                                         .scaledToFill()
