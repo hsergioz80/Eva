@@ -12,7 +12,18 @@ struct Services: View {
 
     var body: some View {
         if let user = viewModel.currentUser{
-            Text("Hello, \(user.fullname) \nThis is you confirmation screen")
+            HStack(alignment: .top){
+                VStack(alignment: .listRowSeparatorLeading){
+                    Text("Billing Contact: \n\n")
+                    Text("Pick up Info:")
+
+                    
+                }
+                VStack(alignment: .listRowSeparatorLeading){
+                    Text(user.fullname + "\n" + user.email + "\n")
+                    Text(user.address)
+                }
+            }
         }
         
         VStack {

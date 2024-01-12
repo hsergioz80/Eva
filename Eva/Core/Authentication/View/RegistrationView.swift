@@ -13,8 +13,8 @@ struct RegistrationView: View {
     @State private var password = ""
     @State private var confirmPassword = ""
     @State private var address = ""
-    @State private var PUDate = ""
-    @State private var DODate = ""
+    @State private var PUDate = Date()
+    @State private var DODate = Date()
 
     
     
@@ -73,8 +73,8 @@ struct RegistrationView: View {
             Button{
                 Task{
                     try await viewModel.createUser(withEmail:email,
-                                                    password: password,
-                                                   fullname: fullName, 
+                                                   password: password,
+                                                   fullname: fullName,
                                                    address: address,
                                                    PUDate: PUDate,
                                                    DODate: DODate)

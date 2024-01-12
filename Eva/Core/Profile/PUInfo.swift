@@ -7,19 +7,11 @@
 
 import SwiftUI
 
-class HighlightedButton: UIButton {
-
-    override var isHighlighted: Bool {
-        didSet {
-            backgroundColor = isHighlighted ? .red : .green
-        }
-    }
-}
 
 struct PUInfo: View {
-    @State private var date = Date()
-    @State private var date1 = Date()
-    
+    @State private var PUDate = Date()
+    @State private var DODate = Date()
+    @EnvironmentObject var viewModel: AuthViewModel
     
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
@@ -32,86 +24,103 @@ struct PUInfo: View {
     
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 24){
-                DatePicker(
-                    "Pick Up Date",
-                    selection: $date,
-                    in: dateRange,
-                    displayedComponents: [.date, .hourAndMinute]
-                )
-                
-                DatePicker(
-                    "Drop Off Date",
-                    selection: $date1,
-                    in: dateRange,
-                    displayedComponents: [.date, .hourAndMinute]
-                )
-                
-                Section("Choose an Option"){
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            let items = [0,1,2]
-                            let selected = 0
-                            
-                            ForEach(0..<items.count, id: \.self) {
-                                if($0 == 0){
-                                    Button{
-                                        Task{
-//                                            try await viewModel.signIn(withEmail: email,
-//                                                                       password: password)
+                if let user = viewModel.currentUser{
+                    
+                    VStack(spacing: 24){
+                        DatePicker(
+                            "Pick Up Date",
+                            selection: $PUDate,
+                            in: dateRange,
+                            displayedComponents: [.date, .hourAndMinute]
+                        )
+                        
+                        DatePicker(
+                            "Drop Off Date",
+                            selection: $DODate,
+                            in: dateRange,
+                            displayedComponents: [.date, .hourAndMinute]
+                        )
+                        
+                        
+                        Section("Choose an Option"){
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 20) {
+                                    let items = [0,1,2]
+                                    
+                                    ForEach(0..<items.count, id: \.self) {
+                                        if($0 == 0){
+                                            Button{
+                                                Task{
+                                                    
+                                                }
+                                            }label: {
+                                                HStack{
+                                                    Text("$40")
+                                                }
+                                                .foregroundColor(.white)
+                                                .frame(width: 50,
+                                                       height: 50)
+                                            }
+                                            .background(Color(.systemBlue))
+                                            .cornerRadius(10)
+                                            .padding(.top, 24)
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            Image("Wash")
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 200, height: 200)
+                                                .onTapGesture {
+                                                    print("//// DEBUG:Selected wash")
+                                                }
+                                            
+                                            
                                         }
-                                    }label: {
-                                        HStack{
+                                        if($0 == 1){
                                             Text("$40")
+                                            Image("Dry")
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 200, height: 200)
                                         }
-                                        .foregroundColor(.white)
-                                        .frame(width: 50,
-                                               height: 50)
                                     }
-                                    .background(Color(.systemBlue))
-                                    
-//                                    .disabled(!formIsValid)
-//                                    .opacity(formIsValid ? 1.0: 0.5)
-                                    .cornerRadius(10)
-                                    .padding(.top, 24)
-
-                                    
-                                    Image("Wash")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 200, height: 200)
-                                        .onTapGesture {
-                                            print("//// DEBUG:Selected wash")
-                                        }
-                                        
-
-                                }
-                                if($0 == 1){
-                                    Text("$40")
-                                    Image("Dry")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 200, height: 200)
                                 }
                             }
                         }
+                        
+                        Button{
+                            Task{
+                                try await viewModel.getDates( uid: user.id, PUDate: PUDate, DODate: DODate)
+                            }
+                        }label: {
+                            HStack{
+//                                Text("Confirm")
+//                                    .fontWeight(.semibold)
+                                NavigationLink(destination: Services()) {
+                                         Text("Open View")
+                                     }
+
+                                
+                            }
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width - 32,
+                                   height: 48)
+                        }
+                        .background(Color(.systemBlue))
+                        .cornerRadius(10)
+                        .padding(.top, 24)
+                        
+                        
                     }
-                }
-                
-                VStack {
                     
-                    NavigationLink(destination: Services()) {
-                        Text("Confirm")
-                    }
-                }.navigationBarTitle("Enter Pick Up Info")
-                
-                
+                }
             }
-            
         }
-    }
-}
+
 
 #Preview {
     PUInfo()

@@ -25,6 +25,15 @@ class AuthViewModel: ObservableObject{
             await fetchUser()
         }
     }
+    func getDates(uid: String, PUDate: Date, DODate: Date) async throws{
+        print("This is the pcikup date \(PUDate) ")
+        print("This is the dropoff date \(DODate) ")
+        let db = Firestore.firestore()
+        let reservation = db.collection("users").document(uid)
+        try await reservation.setData(["PUDate": PUDate], merge: true)
+        try await reservation.setData(["DODate": DODate], merge: true)
+    }
+    
     
     func getAddress(uid: String, address: String) async throws{
         do{
@@ -51,7 +60,7 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func createUser(withEmail email: String, password: String, fullname: String, address:String, PUDate:String, DODate:String) async throws{
+    func createUser(withEmail email: String, password: String, fullname: String, address:String, PUDate:Date, DODate:Date) async throws{
         do{//this allows us to write asycrnous code without completion blocks
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
