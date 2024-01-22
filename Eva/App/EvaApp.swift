@@ -11,6 +11,7 @@ import Firebase
 @main
 struct EvaApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var cartManager = CartManger()
     
     init(){
         FirebaseApp.configure()
@@ -20,6 +21,7 @@ struct EvaApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(cartManager)
         }
     }
 }

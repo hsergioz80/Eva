@@ -101,7 +101,7 @@ struct PUInfo: View {
 //                                Text("Confirm")
 //                                    .fontWeight(.semibold)
                                 NavigationLink(destination: Services()) {
-                                         Text("Open View")
+                                         Text("Confirmation")
                                      }
 
                                 

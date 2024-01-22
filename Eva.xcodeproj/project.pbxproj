@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E04D94C92B4F6C170055E561 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04D94C82B4F6C170055E561 /* Payment.swift */; };
+		E0429EDE2B5DEFD500E3BFA9 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0429EDD2B5DEFD500E3BFA9 /* PaymentButton.swift */; };
+		E0429EE12B5DF77900E3BFA9 /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0429EE02B5DF77900E3BFA9 /* PaymentHandler.swift */; };
+		E0429EE32B5E1B5600E3BFA9 /* CartManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0429EE22B5E1B5600E3BFA9 /* CartManger.swift */; };
 		E054B7832B4DD9E5008E5193 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054B7822B4DD9E5008E5193 /* Services.swift */; };
 		E0556F4A2B2184C50024DF5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0556F492B2184C50024DF5A /* User.swift */; };
 		E056C94F2B223B1A00A352EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E056C94E2B223B1900A352EC /* GoogleService-Info.plist */; };
@@ -52,7 +54,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E04D94C82B4F6C170055E561 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		E0429EDD2B5DEFD500E3BFA9 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		E0429EDF2B5DF71800E3BFA9 /* Eva.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eva.entitlements; sourceTree = "<group>"; };
+		E0429EE02B5DF77900E3BFA9 /* PaymentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
+		E0429EE22B5E1B5600E3BFA9 /* CartManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManger.swift; sourceTree = "<group>"; };
 		E054B7822B4DD9E5008E5193 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		E0556F492B2184C50024DF5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E056C94E2B223B1900A352EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				E056C9892B224C2F00A352EC /* AuthViewModel.swift */,
+				E0429EE22B5E1B5600E3BFA9 /* CartManger.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 		E099A9F52B214AF7002E294B /* Eva */ = {
 			isa = PBXGroup;
 			children = (
+				E0429EE02B5DF77900E3BFA9 /* PaymentHandler.swift */,
+				E0429EDF2B5DF71800E3BFA9 /* Eva.entitlements */,
 				E099AA072B214C50002E294B /* App */,
 				E099AA062B214C4C002E294B /* Components */,
 				E099AA052B214C48002E294B /* Core */,
@@ -212,7 +220,7 @@
 				E0A48FFE2B2176B300C36F75 /* ProfileView.swift */,
 				E0A894F02B4B532C005371C0 /* PUInfo.swift */,
 				E054B7822B4DD9E5008E5193 /* Services.swift */,
-				E04D94C82B4F6C170055E561 /* Payment.swift */,
+				E0429EDD2B5DEFD500E3BFA9 /* PaymentButton.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -329,8 +337,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0429EDE2B5DEFD500E3BFA9 /* PaymentButton.swift in Sources */,
 				E099AA0E2B214F8F002E294B /* LoginView.swift in Sources */,
 				E099AA102B215092002E294B /* InputView.swift in Sources */,
+				E0429EE12B5DF77900E3BFA9 /* PaymentHandler.swift in Sources */,
 				E099A9F92B214AF7002E294B /* ContentView.swift in Sources */,
 				E054B7832B4DD9E5008E5193 /* Services.swift in Sources */,
 				E099A9F72B214AF7002E294B /* EvaApp.swift in Sources */,
@@ -338,8 +348,8 @@
 				E0556F4A2B2184C50024DF5A /* User.swift in Sources */,
 				E0A48FFF2B2176B300C36F75 /* ProfileView.swift in Sources */,
 				E0A48FFD2B21656200C36F75 /* RegistrationView.swift in Sources */,
+				E0429EE32B5E1B5600E3BFA9 /* CartManger.swift in Sources */,
 				E0A490012B217B6300C36F75 /* SettingsRowView.swift in Sources */,
-				E04D94C92B4F6C170055E561 /* Payment.swift in Sources */,
 				E056C98A2B224C2F00A352EC /* AuthViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Eva/Eva.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Eva/Preview Content\"";
@@ -500,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Eva/Eva.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Eva/Preview Content\"";
