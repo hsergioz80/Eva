@@ -14,10 +14,6 @@ class CartManger: ObservableObject{
     let paymentHandler = PaymentHandler()
     @Published var paymentSuccess = false
     
-    func addToCart(product: String){
-        products = product
-    }
-    
     func pay(){
         paymentHandler.startpayment() { success in
             self.paymentSuccess = success

@@ -25,6 +25,7 @@ class AuthViewModel: ObservableObject{
             await fetchUser()
         }
     }
+    
     func getDates(uid: String, PUDate: Date, DODate: Date) async throws{
         print("This is the pcikup date \(PUDate) ")
         print("This is the dropoff date \(DODate) ")

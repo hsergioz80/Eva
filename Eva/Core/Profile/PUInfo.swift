@@ -40,6 +40,23 @@ struct PUInfo: View {
                     displayedComponents: [.date, .hourAndMinute]
                 )
                 
+                Button{
+                    Task{
+                        try await viewModel.getDates( uid: user.id, PUDate: PUDate, DODate: DODate)
+                    }
+                }label: {
+                    HStack{
+                        Text("Save Date")
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.white)
+                    .frame(width: UIScreen.main.bounds.width - 32,
+                           height: 48)
+                }
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
+                .padding(.top, 24)
+                
                 Section("Choose an Option"){
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
@@ -83,25 +100,9 @@ struct PUInfo: View {
                     }
                 }
                 
-                Button{
-                    Task{
-                        try await viewModel.getDates( uid: user.id, PUDate: PUDate, DODate: DODate)
-                    }
-                }label: {
-                    HStack{
-                        //                                Text("Confirm")
-                        //                                    .fontWeight(.semibold)
-                        NavigationLink(destination: Services()) {
-                            Text("Confirmation")
-                        }
-                    }
-                    .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width - 32,
-                           height: 48)
+                NavigationLink(destination: Services()) {
+                    Text("Confirmation")
                 }
-                .background(Color(.systemBlue))
-                .cornerRadius(10)
-                .padding(.top, 24)
             }
         }
     }

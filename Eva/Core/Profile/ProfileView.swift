@@ -52,7 +52,6 @@ struct ProfileView: View {
                     Button{
                         Task{
                             try await viewModel.getAddress(uid: user.id, address: address)
-                            //brings new view after button click
                             path.append("PUInfo")
                         }
                     }label: {
@@ -61,7 +60,6 @@ struct ProfileView: View {
                                 .fontWeight(.semibold)
                             Image(systemName: "arrow.right")
                         }
-                        //brings new view after button click
                         .navigationDestination(for: String.self){view in if view == "PUInfo"{
                                 PUInfo()
                             }
