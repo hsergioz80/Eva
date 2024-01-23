@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var address = ""
-    
-
-    
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var path = NavigationPath()
     
@@ -50,13 +47,8 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal)
                     .padding(.top, 12)
+                    
                     //sign in
-                    
-                    
-                    
-                    
-                    
-                    
                     Button{
                         Task{
                             try await viewModel.getAddress(uid: user.id, address: address)
@@ -81,13 +73,6 @@ struct ProfileView: View {
                     .background(Color(.systemBlue))
                     .cornerRadius(10)
                     .padding(.top, 24)
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     Spacer()
                     

@@ -54,8 +54,6 @@ extension PaymentButton{
     }
 }
 
-
-
 #Preview {
     PaymentButton(action: {})
 }

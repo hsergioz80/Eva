@@ -126,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				E056C9892B224C2F00A352EC /* AuthViewModel.swift */,
-				E0429EE22B5E1B5600E3BFA9 /* CartManger.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -150,9 +149,9 @@
 		E099A9F52B214AF7002E294B /* Eva */ = {
 			isa = PBXGroup;
 			children = (
-				E0429EE02B5DF77900E3BFA9 /* PaymentHandler.swift */,
 				E0429EDF2B5DF71800E3BFA9 /* Eva.entitlements */,
 				E099AA072B214C50002E294B /* App */,
+				E0C9466F2B5F3E9D001239EB /* ApplePay */,
 				E099AA062B214C4C002E294B /* Components */,
 				E099AA052B214C48002E294B /* Core */,
 				E099AA042B214C45002E294B /* Model */,
@@ -220,7 +219,6 @@
 				E0A48FFE2B2176B300C36F75 /* ProfileView.swift */,
 				E0A894F02B4B532C005371C0 /* PUInfo.swift */,
 				E054B7822B4DD9E5008E5193 /* Services.swift */,
-				E0429EDD2B5DEFD500E3BFA9 /* PaymentButton.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -232,6 +230,16 @@
 				E056C9882B224BF400A352EC /* ViewModel */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E0C9466F2B5F3E9D001239EB /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				E0429EE22B5E1B5600E3BFA9 /* CartManger.swift */,
+				E0429EDD2B5DEFD500E3BFA9 /* PaymentButton.swift */,
+				E0429EE02B5DF77900E3BFA9 /* PaymentHandler.swift */,
+			);
+			path = ApplePay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -12,10 +12,7 @@ struct Services: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var cartManger: CartManger
 
-    
-
     var body: some View {
-
                 if let user = viewModel.currentUser{
                     HStack(alignment: .top){
                         VStack(alignment: .listRowSeparatorLeading){
@@ -23,8 +20,6 @@ struct Services: View {
                             Text("Pick up Info: \n\n\n")
                             Text("Drop off Info: \n\n")
                             Text("Total: $40").bold()
-
-                            
                         }
                         VStack(alignment: .listRowSeparatorLeading){
                             Text(user.fullname + "\n" + user.email + "\n")
@@ -33,28 +28,13 @@ struct Services: View {
                             Text(user.address)
                             Text("\(user.DODate) \n")
                         }
-                        
                     }
                     VStack {
-                        
-                        PaymentButton(action: cartManger.pay)
-//                        PaymentButton(action: {})
-                        
+                        PaymentButton(action: cartManger.pay)                        
                     }
-                    
                 }
             }
         }
-    
-
-
-
-
-
-
-
-
-
 
 #Preview {
     Services()
