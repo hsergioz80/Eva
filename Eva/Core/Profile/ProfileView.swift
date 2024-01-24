@@ -8,42 +8,47 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State private var PUDate = Date()
+    @State private var DODate = Date()
     @State private var address = ""
-    @EnvironmentObject var viewModel: AuthViewModel
     @State private var path = NavigationPath()
+    @EnvironmentObject var viewModel: AuthViewModel
     
+    let dateRange: ClosedRange<Date> = {
+        let calendar = Calendar.current
+        let startComponents = DateComponents(year: 2024, month: 1, day: 1)
+        let endComponents = DateComponents(year: 2025, month: 12, day: 31, hour: 23, minute: 59, second: 59)
+        return calendar.date(from:startComponents)!
+        ...
+        calendar.date(from:endComponents)!
+    }()
+
     var body: some View {
         NavigationStack(path: $path){
             if let user = viewModel.currentUser{
                 List{
                     Section{
-                        HStack{
-                            Text(user.initials)
-                                .font(.title)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .frame(width: 72,height: 72)
-                                .background(Color(.systemGray3))
-                                .clipShape(Circle())
-                            
-                            VStack(alignment: .leading, spacing: 4){
-                                Text(user.fullname)
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                    .padding(.top, 4)
-                                
-                                Text(user.email)
-                                    .font(.footnote)
-                                    .foregroundColor(.gray)
-                            }
-                        }
+                        UserInfoView(initials: user.initials, fullname: user.fullname, email: user.email)
                     }
+                    
+                    DatePicker(
+                        "Pick Up Date",
+                        selection: $PUDate,
+                        in: dateRange,
+                        displayedComponents: [.date, .hourAndMinute]
+                    )
+                    
+                    DatePicker(
+                        "Drop Off Date",
+                        selection: $DODate,
+                        in: dateRange,
+                        displayedComponents: [.date, .hourAndMinute]
+                    )
                     
                     VStack(spacing: 24){
                         InputView(text: $address,
                                   title: "Enter Pick Up Address",
                                   placeHolder: "50 Cherry Lane")
-                        
                     }
                     .padding(.horizontal)
                     .padding(.top, 12)
@@ -52,6 +57,9 @@ struct ProfileView: View {
                     Button{
                         Task{
                             try await viewModel.getAddress(uid: user.id, address: address)
+                            
+                            try await viewModel.getDates( uid: user.id, PUDate: PUDate, DODate: DODate)
+
                             path.append("PUInfo")
                         }
                     }label: {

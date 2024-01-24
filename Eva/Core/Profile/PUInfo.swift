@@ -7,56 +7,8 @@
 
 import SwiftUI
 
-
 struct PUInfo: View {
-    @State private var PUDate = Date()
-    @State private var DODate = Date()
-    @EnvironmentObject var viewModel: AuthViewModel
-    
-    let dateRange: ClosedRange<Date> = {
-        let calendar = Calendar.current
-        let startComponents = DateComponents(year: 2024, month: 1, day: 1)
-        let endComponents = DateComponents(year: 2025, month: 12, day: 31, hour: 23, minute: 59, second: 59)
-        return calendar.date(from:startComponents)!
-        ...
-        calendar.date(from:endComponents)!
-    }()
-    
     var body: some View {
-        if let user = viewModel.currentUser{
-            
-            VStack(spacing: 24){
-                DatePicker(
-                    "Pick Up Date",
-                    selection: $PUDate,
-                    in: dateRange,
-                    displayedComponents: [.date, .hourAndMinute]
-                )
-                
-                DatePicker(
-                    "Drop Off Date",
-                    selection: $DODate,
-                    in: dateRange,
-                    displayedComponents: [.date, .hourAndMinute]
-                )
-                
-                Button{
-                    Task{
-                        try await viewModel.getDates( uid: user.id, PUDate: PUDate, DODate: DODate)
-                    }
-                }label: {
-                    HStack{
-                        Text("Save Date")
-                            .fontWeight(.semibold)
-                    }
-                    .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width - 32,
-                           height: 48)
-                }
-                .background(Color(.systemBlue))
-                .cornerRadius(10)
-                .padding(.top, 24)
-                
                 Section("Choose an Option"){
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
@@ -98,7 +50,6 @@ struct PUInfo: View {
                             }
                         }
                     }
-                }
                 
                 NavigationLink(destination: Services()) {
                     Text("Confirmation")
@@ -106,7 +57,7 @@ struct PUInfo: View {
             }
         }
     }
-}
+
 
 #Preview {
     PUInfo()

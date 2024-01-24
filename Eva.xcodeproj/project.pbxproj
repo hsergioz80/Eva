@@ -51,6 +51,7 @@
 		E0A48FFF2B2176B300C36F75 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A48FFE2B2176B300C36F75 /* ProfileView.swift */; };
 		E0A490012B217B6300C36F75 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A490002B217B6300C36F75 /* SettingsRowView.swift */; };
 		E0A894F12B4B532C005371C0 /* PUInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A894F02B4B532C005371C0 /* PUInfo.swift */; };
+		E0C946712B609F48001239EB /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C946702B609F48001239EB /* UserInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		E0A48FFE2B2176B300C36F75 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E0A490002B217B6300C36F75 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		E0A894F02B4B532C005371C0 /* PUInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUInfo.swift; sourceTree = "<group>"; };
+		E0C946702B609F48001239EB /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				E099AA0F2B215092002E294B /* InputView.swift */,
 				E0A490002B217B6300C36F75 /* SettingsRowView.swift */,
+				E0C946702B609F48001239EB /* UserInfoView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				E099A9F72B214AF7002E294B /* EvaApp.swift in Sources */,
 				E0A894F12B4B532C005371C0 /* PUInfo.swift in Sources */,
 				E0556F4A2B2184C50024DF5A /* User.swift in Sources */,
+				E0C946712B609F48001239EB /* UserInfoView.swift in Sources */,
 				E0A48FFF2B2176B300C36F75 /* ProfileView.swift in Sources */,
 				E0A48FFD2B21656200C36F75 /* RegistrationView.swift in Sources */,
 				E0429EE32B5E1B5600E3BFA9 /* CartManger.swift in Sources */,
