@@ -12,6 +12,7 @@ import Firebase
 struct EvaApp: App {
     @StateObject var viewModel = AuthViewModel()
     @StateObject var cartManager = CartManger()
+
     
     init(){
         FirebaseApp.configure()

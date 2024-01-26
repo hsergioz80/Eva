@@ -15,6 +15,7 @@ struct RegistrationView: View {
     @State private var address = ""
     @State private var PUDate = Date()
     @State private var DODate = Date()
+    @State private var price = Int()
 
     
     
@@ -77,7 +78,8 @@ struct RegistrationView: View {
                                                    fullname: fullName,
                                                    address: address,
                                                    PUDate: PUDate,
-                                                   DODate: DODate)
+                                                   DODate: DODate, 
+                                                   price: price)
                 }
             }label: {
                 HStack{

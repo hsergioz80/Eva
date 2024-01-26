@@ -8,21 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State private var price = 0
     @State private var PUDate = Date()
     @State private var DODate = Date()
     @State private var address = ""
     @State private var path = NavigationPath()
     @EnvironmentObject var viewModel: AuthViewModel
     
-    let dateRange: ClosedRange<Date> = {
-        let calendar = Calendar.current
-        let startComponents = DateComponents(year: 2024, month: 1, day: 1)
-        let endComponents = DateComponents(year: 2025, month: 12, day: 31, hour: 23, minute: 59, second: 59)
-        return calendar.date(from:startComponents)!
-        ...
-        calendar.date(from:endComponents)!
-    }()
-
     var body: some View {
         NavigationStack(path: $path){
             if let user = viewModel.currentUser{
@@ -31,19 +23,7 @@ struct ProfileView: View {
                         UserInfoView(initials: user.initials, fullname: user.fullname, email: user.email)
                     }
                     
-                    DatePicker(
-                        "Pick Up Date",
-                        selection: $PUDate,
-                        in: dateRange,
-                        displayedComponents: [.date, .hourAndMinute]
-                    )
-                    
-                    DatePicker(
-                        "Drop Off Date",
-                        selection: $DODate,
-                        in: dateRange,
-                        displayedComponents: [.date, .hourAndMinute]
-                    )
+                    SelectDateView(PUDate: $PUDate, DODate: $DODate)
                     
                     VStack(spacing: 24){
                         InputView(text: $address,
@@ -53,14 +33,22 @@ struct ProfileView: View {
                     .padding(.horizontal)
                     .padding(.top, 12)
                     
+                    Section("Choose 1 or more Options"){
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ServiceButton(price: $price, cost: "$40", imageName: "Wash")
+                                ServiceButton(price: $price, cost: "$60", imageName: "Dry")
+                            }
+                        }
+                    }
                     //sign in
                     Button{
                         Task{
                             try await viewModel.getAddress(uid: user.id, address: address)
-                            
                             try await viewModel.getDates( uid: user.id, PUDate: PUDate, DODate: DODate)
+                            try await viewModel.getPrice( uid:user.id, price: price)
 
-                            path.append("PUInfo")
+                            path.append("Payment")
                         }
                     }label: {
                         HStack{
@@ -68,9 +56,9 @@ struct ProfileView: View {
                                 .fontWeight(.semibold)
                             Image(systemName: "arrow.right")
                         }
-                        .navigationDestination(for: String.self){view in if view == "PUInfo"{
-                                PUInfo()
-                            }
+                        .navigationDestination(for: String.self){view in if view == "Payment"{
+                            Payment()
+                        }
                         }
                         .foregroundColor(.white)
                         .frame(width: UIScreen.main.bounds.width - 32,
@@ -117,9 +105,6 @@ struct ProfileView: View {
         }
     }
 }
-
-
-
 #Preview {
     ProfileView()
 }

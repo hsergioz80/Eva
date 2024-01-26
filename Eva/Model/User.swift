@@ -14,6 +14,7 @@ struct User: Identifiable, Codable{
     let address:String
     let PUDate:Date
     let DODate:Date
+    let price:Int
     
     var initials: String{
         let formatter = PersonNameComponentsFormatter()
@@ -26,5 +27,5 @@ struct User: Identifiable, Codable{
 }
 
 extension User{
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Koby Bryant", email: "test@gmail.com", address: "1 apple ln", PUDate: Date(), DODate: Date())
+    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Koby Bryant", email: "test@gmail.com", address: "1 apple ln", PUDate: Date(), DODate: Date(), price: 0)
 }

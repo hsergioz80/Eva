@@ -26,6 +26,13 @@ class AuthViewModel: ObservableObject{
         }
     }
     
+    func getPrice(uid: String, price:Int)async throws{
+        let db = Firestore.firestore()
+        let reservation = db.collection("users").document(uid)
+        try await reservation.setData(["price": price], merge: true)
+        await fetchUser()
+    }
+    
     func getDates(uid: String, PUDate: Date, DODate: Date) async throws{
         print("This is the pcikup date \(PUDate) ")
         print("This is the dropoff date \(DODate) ")
@@ -33,6 +40,7 @@ class AuthViewModel: ObservableObject{
         let reservation = db.collection("users").document(uid)
         try await reservation.setData(["PUDate": PUDate], merge: true)
         try await reservation.setData(["DODate": DODate], merge: true)
+        await fetchUser()
     }
     
     
@@ -44,7 +52,7 @@ class AuthViewModel: ObservableObject{
             let db = Firestore.firestore()
             let reservation = db.collection("users").document(uid)
             try await reservation.setData(["address": address], merge: true)
-            
+            await fetchUser()
             
         }catch{
             print("DEBUG: Failed to log in with error \(error.localizedDescription)")
@@ -61,11 +69,11 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func createUser(withEmail email: String, password: String, fullname: String, address:String, PUDate:Date, DODate:Date) async throws{
+    func createUser(withEmail email: String, password: String, fullname: String, address:String, PUDate:Date, DODate:Date, price:Int) async throws{
         do{//this allows us to write asycrnous code without completion blocks
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
-            let user = User(id: result.user.uid, fullname: fullname, email: email, address: address, PUDate:PUDate, DODate: DODate)
+            let user = User(id: result.user.uid, fullname: fullname, email: email, address: address, PUDate:PUDate, DODate: DODate, price: price)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()

@@ -1,5 +1,5 @@
 //
-//  Services.swift
+//  Payment.swift
 //  Eva
 //
 //  Created by sergio hernandez on 1/9/24.
@@ -8,7 +8,9 @@
 import SwiftUI
 import PassKit
 
-struct Services: View {
+struct Payment: View {
+    
+    
     @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var cartManger: CartManger
     
@@ -16,6 +18,7 @@ struct Services: View {
         if cartManger.paymentSuccess{
             Text("Thanks for your purchase :)")
             NavigationLink(destination: ProfileView() ) {
+                
                 Text("Continue")
             }.navigationBarBackButtonHidden(true)
 
@@ -27,13 +30,13 @@ struct Services: View {
                         Text("Billing Contact: \n\n")
                         Text("Pick up Info: \n\n\n")
                         Text("Drop off Info: \n\n")
-                        Text("Total: $40").bold()
+                        Text("Total: $ \(user.price)").bold()
                     }
                     VStack(alignment: .listRowSeparatorLeading){
                         Text(user.fullname + "\n" + user.email + "\n")
-                        Text(user.address)
+                        Text("\(user.address)")
                         Text("\(user.PUDate) \n")
-                        Text(user.address)
+                        Text("\(user.address)")
                         Text("\(user.DODate) \n")
                     }
                 }
@@ -46,5 +49,5 @@ struct Services: View {
 }
 
 #Preview {
-    Services()
+    Payment()
 }
