@@ -41,6 +41,13 @@
 		E056C9842B224B9400A352EC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E056C9832B224B9400A352EC /* FirebaseStorage */; };
 		E056C9862B224B9400A352EC /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E056C9852B224B9400A352EC /* FirebaseStorageCombine-Community */; };
 		E056C98A2B224C2F00A352EC /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056C9892B224C2F00A352EC /* AuthViewModel.swift */; };
+		E0734B512B65BCBD00B5C49A /* AnnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0734B502B65BCBD00B5C49A /* AnnotationItem.swift */; };
+		E0734B532B65BCDD00B5C49A /* AddressResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0734B522B65BCDD00B5C49A /* AddressResult.swift */; };
+		E0734B5A2B65BD9D00B5C49A /* AddressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0734B592B65BD9D00B5C49A /* AddressRow.swift */; };
+		E0734B5C2B65BDB700B5C49A /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0734B5B2B65BDB700B5C49A /* ClearButton.swift */; };
+		E0734B5E2B65BF1100B5C49A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0734B5D2B65BF1100B5C49A /* ContentViewModel.swift */; };
+		E0734B602B65C0C800B5C49A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0734B5F2B65C0C800B5C49A /* SearchBar.swift */; };
+		E0734B642B65E6CC00B5C49A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0734B632B65E6CC00B5C49A /* AddressView.swift */; };
 		E099A9F72B214AF7002E294B /* EvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099A9F62B214AF7002E294B /* EvaApp.swift */; };
 		E099A9F92B214AF7002E294B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E099A9F82B214AF7002E294B /* ContentView.swift */; };
 		E099A9FB2B214AF8002E294B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E099A9FA2B214AF8002E294B /* Assets.xcassets */; };
@@ -64,6 +71,13 @@
 		E0556F492B2184C50024DF5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E056C94E2B223B1900A352EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E056C9892B224C2F00A352EC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E0734B502B65BCBD00B5C49A /* AnnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationItem.swift; sourceTree = "<group>"; };
+		E0734B522B65BCDD00B5C49A /* AddressResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressResult.swift; sourceTree = "<group>"; };
+		E0734B592B65BD9D00B5C49A /* AddressRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRow.swift; sourceTree = "<group>"; };
+		E0734B5B2B65BDB700B5C49A /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
+		E0734B5D2B65BF1100B5C49A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		E0734B5F2B65C0C800B5C49A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E0734B632B65E6CC00B5C49A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		E099A9F32B214AF7002E294B /* Eva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E099A9F62B214AF7002E294B /* EvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaApp.swift; sourceTree = "<group>"; };
 		E099A9F82B214AF7002E294B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +148,35 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E0734B4C2B65BBE000B5C49A /* AddressAutocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				E0734B542B65BCEE00B5C49A /* Content */,
+				E0734B4F2B65BC7E00B5C49A /* Models */,
+			);
+			path = AddressAutocomplete;
+			sourceTree = "<group>";
+		};
+		E0734B4F2B65BC7E00B5C49A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0734B502B65BCBD00B5C49A /* AnnotationItem.swift */,
+				E0734B522B65BCDD00B5C49A /* AddressResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0734B542B65BCEE00B5C49A /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				E0734B592B65BD9D00B5C49A /* AddressRow.swift */,
+				E0734B5B2B65BDB700B5C49A /* ClearButton.swift */,
+				E0734B5D2B65BF1100B5C49A /* ContentViewModel.swift */,
+				E0734B5F2B65C0C800B5C49A /* SearchBar.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		E099A9EA2B214AF7002E294B = {
 			isa = PBXGroup;
 			children = (
@@ -153,15 +196,16 @@
 		E099A9F52B214AF7002E294B /* Eva */ = {
 			isa = PBXGroup;
 			children = (
-				E0429EDF2B5DF71800E3BFA9 /* Eva.entitlements */,
+				E0734B4C2B65BBE000B5C49A /* AddressAutocomplete */,
 				E099AA072B214C50002E294B /* App */,
 				E0C9466F2B5F3E9D001239EB /* ApplePay */,
 				E099AA062B214C4C002E294B /* Components */,
 				E099AA052B214C48002E294B /* Core */,
 				E099AA042B214C45002E294B /* Model */,
+				E099A9FC2B214AF8002E294B /* Preview Content */,
 				E099A9FA2B214AF8002E294B /* Assets.xcassets */,
 				E056C94E2B223B1900A352EC /* GoogleService-Info.plist */,
-				E099A9FC2B214AF8002E294B /* Preview Content */,
+				E0429EDF2B5DF71800E3BFA9 /* Eva.entitlements */,
 			);
 			path = Eva;
 			sourceTree = "<group>";
@@ -223,6 +267,7 @@
 		E099AA092B214CDA002E294B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				E0734B632B65E6CC00B5C49A /* AddressView.swift */,
 				E0A48FFE2B2176B300C36F75 /* ProfileView.swift */,
 				E054B7822B4DD9E5008E5193 /* Payment.swift */,
 			);
@@ -352,18 +397,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0429EDE2B5DEFD500E3BFA9 /* PaymentButton.swift in Sources */,
+				E0734B5A2B65BD9D00B5C49A /* AddressRow.swift in Sources */,
 				E099AA0E2B214F8F002E294B /* LoginView.swift in Sources */,
 				E099AA102B215092002E294B /* InputView.swift in Sources */,
 				E0429EE12B5DF77900E3BFA9 /* PaymentHandler.swift in Sources */,
 				E099A9F92B214AF7002E294B /* ContentView.swift in Sources */,
+				E0734B642B65E6CC00B5C49A /* AddressView.swift in Sources */,
 				E0C946792B61B0F7001239EB /* ServiceButton.swift in Sources */,
 				E054B7832B4DD9E5008E5193 /* Payment.swift in Sources */,
+				E0734B512B65BCBD00B5C49A /* AnnotationItem.swift in Sources */,
+				E0734B602B65C0C800B5C49A /* SearchBar.swift in Sources */,
 				E099A9F72B214AF7002E294B /* EvaApp.swift in Sources */,
 				E0C946752B61A02D001239EB /* SelectDateView.swift in Sources */,
 				E0556F4A2B2184C50024DF5A /* User.swift in Sources */,
 				E0C946712B609F48001239EB /* UserInfoView.swift in Sources */,
+				E0734B5C2B65BDB700B5C49A /* ClearButton.swift in Sources */,
 				E0A48FFF2B2176B300C36F75 /* ProfileView.swift in Sources */,
+				E0734B532B65BCDD00B5C49A /* AddressResult.swift in Sources */,
 				E0A48FFD2B21656200C36F75 /* RegistrationView.swift in Sources */,
+				E0734B5E2B65BF1100B5C49A /* ContentViewModel.swift in Sources */,
 				E0429EE32B5E1B5600E3BFA9 /* CartManger.swift in Sources */,
 				E0A490012B217B6300C36F75 /* SettingsRowView.swift in Sources */,
 				E056C98A2B224C2F00A352EC /* AuthViewModel.swift in Sources */,

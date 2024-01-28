@@ -41,7 +41,9 @@ struct Payment: View {
                     }
                 }
                 VStack {
-                    PaymentButton(action: cartManger.pay)
+                    PaymentButton(action: cartManger.pay, 
+                                  action2: cartManger.setDate(p_date: user.DODate),
+                                  action3: cartManger.setPrice(p_price: user.price))
                 }
             }
         }

@@ -17,14 +17,17 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack(path: $path){
+
             if let user = viewModel.currentUser{
                 List{
                     Section{
                         UserInfoView(initials: user.initials, fullname: user.fullname, email: user.email)
                     }
                     
-                    SelectDateView(PUDate: $PUDate, DODate: $DODate)
-                    
+                    Section("Select Pick Up Date and Drop Off Date"){
+                        SelectDateView(PUDate: $PUDate, DODate: $DODate)
+
+                    }
                     VStack(spacing: 24){
                         InputView(text: $address,
                                   title: "Enter Pick Up Address",
@@ -65,6 +68,8 @@ struct ProfileView: View {
                                height: 48)
                     }
                     .background(Color(.systemBlue))
+                    .disabled(!formIsValid)
+                    .opacity(formIsValid ? 1.0: 0.5)
                     .cornerRadius(10)
                     .padding(.top, 24)
                     
@@ -105,6 +110,14 @@ struct ProfileView: View {
         }
     }
 }
+
+extension ProfileView:AuthenticationFormProtocol{
+    var formIsValid: Bool {
+        return !address.isEmpty
+        && price > 0
+    }
+}
+
 #Preview {
     ProfileView()
 }

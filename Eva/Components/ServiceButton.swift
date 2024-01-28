@@ -54,7 +54,7 @@ struct ServiceButton: View {
                 Image(imageName)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 150, height: 150)
             }
             .toggleStyle(.button)
             .tint(.blue)

@@ -16,18 +16,30 @@ class PaymentHandler: NSObject{
     var paymentSummaryItems = [PKPaymentSummaryItem]()
     var paymentStatus = PKPaymentAuthorizationStatus.failure
     var completionHandler: PaymentCompletionHandler?
+    var date = Date()
+    var price = Int()
     
     static let supportedNetworks: [PKPaymentNetwork] = [
         .visa,
         .masterCard
     ]
     
+    func setDate(p_date: Date){
+        date = p_date
+    }
+    
+    func setDate(p_price: Int){
+        price = p_price
+    }
+    
     func shippingMethodCalculator() -> [PKShippingMethod]{
+        print("///////DEBUG:: This is the date passed: ", date)
+        print("/////DEBUG: This is the price passed: ", price)
         let today = Date()
         let calendar = Calendar.current
         
-        let shippingStart = calendar.date(byAdding: .day, value: 5, to: today)
-        let shippingEnd = calendar.date(byAdding: .day, value: 10, to: today)
+        let shippingStart = calendar.date(byAdding: .day, value: 0, to: date)
+        let shippingEnd = calendar.date(byAdding: .day, value: 0, to: date)
         
         if let shippingEnd = shippingEnd, let shippingStart = shippingStart {
             let startComponents = calendar.dateComponents([.calendar,.year,.month,.day], from: shippingStart)
@@ -46,11 +58,30 @@ class PaymentHandler: NSObject{
     func startpayment( completion:@escaping PaymentCompletionHandler){
         completionHandler = completion
         paymentSummaryItems = []
-        let item = PKPaymentSummaryItem(label: "Wash", amount: NSDecimalNumber(string: "40.00"), type: .final)
-        paymentSummaryItems.append(item)
         
-        let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(string: "40.00"), type: .final)
-        paymentSummaryItems.append(total)
+        if price == 40{
+            let item = PKPaymentSummaryItem(label: "Wash", amount: NSDecimalNumber(string: String(price)), type: .final)
+            paymentSummaryItems.append(item)
+            
+            let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(string: String(price)), type: .final)
+            paymentSummaryItems.append(total)
+        }
+        else if price == 60{
+            let item = PKPaymentSummaryItem(label: "Dry Cleaing", amount: NSDecimalNumber(string: String(price)), type: .final)
+            paymentSummaryItems.append(item)
+            
+            let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(string: String(price)), type: .final)
+            paymentSummaryItems.append(total)
+        }
+        else{
+            let item = PKPaymentSummaryItem(label: "Dry Cleaing + Wash", amount: NSDecimalNumber(string: String(price)), type: .final)
+            paymentSummaryItems.append(item)
+            
+            let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(string: String(price)), type: .final)
+            paymentSummaryItems.append(total)
+
+        }
+    
         
         let paymentRequest = PKPaymentRequest()
         paymentRequest.paymentSummaryItems = paymentSummaryItems
@@ -61,7 +92,7 @@ class PaymentHandler: NSObject{
         paymentRequest.supportedNetworks = PaymentHandler.supportedNetworks
         paymentRequest.shippingType = .delivery
         paymentRequest.shippingMethods = shippingMethodCalculator()
-        paymentRequest.requiredShippingContactFields = [.name, .postalAddress]
+//        paymentRequest.requiredShippingContactFields = [.name, .postalAddress]
         
         paymentController = PKPaymentAuthorizationController(paymentRequest: paymentRequest)
         paymentController?.delegate = self

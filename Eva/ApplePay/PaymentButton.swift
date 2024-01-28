@@ -10,6 +10,8 @@ import PassKit
 
 struct PaymentButton: View {
     var action: () -> Void
+    var action2: ()
+    var action3: ()
     
     var body: some View {
         Representable(action: action)
